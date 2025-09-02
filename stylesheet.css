@@ -1,0 +1,120 @@
+@font-face {
+    font-family:"effra";
+    src:url("https://use.typekit.net/af/bc093c/00000000000000007735fd41/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/bc093c/00000000000000007735fd41/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/bc093c/00000000000000007735fd41/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"effra";
+    src:url("https://use.typekit.net/af/c0864f/00000000000000007735fd3d/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/c0864f/00000000000000007735fd3d/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/c0864f/00000000000000007735fd3d/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+    font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+    font-family: "effra";
+    src: url("https://use.typekit.net/af/[font-id]/00000000000000007735fd[xx]/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),
+        url("https://use.typekit.net/af/[font-id]/00000000000000007735fd[xx]/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),
+        url("https://use.typekit.net/af/[font-id]/00000000000000007735fd[xx]/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: 'Effra-Regular';
+    src: local('effra');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Effra-Bold';
+    src: local('effra');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Effra';
+    src: local('effra');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Effra-Italic';
+    src: local('effra');
+    font-weight: 400;
+    font-style: italic;
+}
+
+.source-sans-3-light {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.source-sans-3-regular {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.source-sans-3-bold {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+body {
+    font-family: 'source-sans-pro', Helvetica, Arial, sans-serif;
+    color: #414141;
+}
+p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414141;
+    margin: 18px 0px 24px; 
+    font-family: 'source-sans-pr-regular', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+
+}
+h1 {
+    font-family: 'Effra-Bold', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin: 18px 0px 24px; 
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.7;
+    color: #000000;
+    
+}
+h2 {
+    font-family: 'Effra-Bold', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin: 18px 0px 24px; 
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1.7;
+    color: #000000;
+    
+}
+h3 {
+    font-family: 'Effra-Bold', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 1.25em;
+    line-height: 1.5;
+    color: #000000;
+    margin-bottom: 10px;
+}
+img#logo {
+    display: block;
+    margin: left;
+    width: 20%;
+    height: auto;
+}
