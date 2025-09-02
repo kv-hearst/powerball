@@ -11,13 +11,11 @@
             margin: 0;
             padding: 20px;
         }
-        h1 {
-            color: #333;
-        }
+     
 
         .ball {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;  /* Must be flex, not inline-block */
             margin: 10px;
@@ -49,7 +47,7 @@
             display: flex;
             justify-content: center;
             font-size: 16px;
-            /* background-color: whitesmoke; */
+            /* background-color: aliceblue; */
             padding: 5px;
             width: 300px;
             align-items: center;
@@ -68,68 +66,98 @@
         }
         #ball-container #powerball {
             border: 3px solid #333;
+            
         }
         #ball-container .ball {
             border: 3px solid #333;
         }
-
-
-
         #frequency-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
-            gap: 10px;
+            /* margin-bottom: 30px;
+            gap: 10px; */
             font-size: 24px;
         }
 
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .ball {
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+            }
+
+            .ball-number {
+                font-size: 18px;
+            }
+
+            #ball-container {
+                gap: 15px;
+            }
+
+            #frequency-container {
+                font-size: 18px;
+            }
+
+            .result {
+                font-size: 14px;
+                width: 300px;
+            }
+
+            .footnote {
+                font-size: 0.8rem;
+            }
+        }
 
             </style>
 </html>
 <body>
     
 
-    <h1>Most common winning numbers</h1>
+    <h2>Most common winning numbers</h2>
     <div id="frequency-container">
         <div class="ball">61</div>
         <div class="ball">21</div>
         <div class="ball">23</div>
         <div class="ball">33</div>
-        <div class="ball">69</div>
-        <div class="ball">27</div>
+        <!-- <div class="ball">69</div> -->
+        <!-- <div class="ball">27</div> -->
     </div>
     <div id="frequency-container">
         <div class="ball" id="powerball">4</div>
         <div class="ball" id="powerball">21</div>
         <div class="ball" id="powerball">24</div>
         <div class="ball" id="powerball">18</div>
-        <div class="ball" id="powerball">25</div>
-        <div class="ball" id="powerball">14</div>
+        <!-- <div class="ball" id="powerball">25</div> -->
+        <!-- <div class="ball" id="powerball">14</div> -->
     </div>
 
     <br><br>
-    <h1>Least common winning numbers</h1>
+    <h2>Least common winning numbers</h2>
     <div id="frequency-container">
         <div class="ball">13</div>
         <div class="ball">49</div>
         <div class="ball">26</div>
         <div class="ball">46</div>
-        <div class="ball">65</div>
-        <div class="ball">51</div>
+        <!-- <div class="ball">65</div> -->
+        <!-- <div class="ball">51</div> -->
     </div>
     <div id="frequency-container">
         <div class="ball" id="powerball">16</div>
         <div class="ball" id="powerball">15</div>
         <div class="ball" id="powerball">12</div>
         <div class="ball" id="powerball">17</div>
-        <div class="ball" id="powerball">23</div>
-        <div class="ball" id="powerball">7</div>
+        <!-- <div class="ball" id="powerball">23</div> -->
+        <!-- <div class="ball" id="powerball">7</div> -->
     </div>
 
     <br><br><br><br>
 
-    <h1>Check how often your Powerball numbers win</h1>
+    <h2>Check how often your Powerball numbers win</h2>
     <p>Pick your main ball and powerball numbers, then hover over each ball to discover how many times it has been drawn over the past ten years.</p>
     <div id="ball-container"> 
         <div class="ball">
@@ -144,7 +172,7 @@
 
     
     <div class="footnote" style="text-align:left; margin-top:20px; font-size:0.9rem; color:#414141; line-height: 1rem;">
-        <p>Interactive: Katrina Ventura/Hearst TV • Source: <a href="https://www.powerball.net/statistics">Powerball Statistics</a><br><i>Data as of September 1, 2025.</i></p>
+        <p>Interactive: Katrina Ventura/Hearst TV • Source: <a href="https://www.powerball.net/statistics" target="_blank">Powerball Statistics</a><br><i>Data as of September 1, 2025.</i></p>
     </div>
 
     <script>
