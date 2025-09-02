@@ -49,6 +49,7 @@
             width: 300px;
             align-items: center;
             margin: 0 auto;
+            
 
         }
 
@@ -67,22 +68,12 @@
             </style>
 </html>
 <body>
-    <h1>Create your draw</h1>
-    <p>Hover over a ball to see how many times it has been drawn in the last ten years.</p>
+    <h1>How often do your Power Ball numbers win</h1>
+    <p>Pick your main ball and Power Ball numbers, then hover over each ball to discover how many times it has been drawn over the past ten years.</p>
     <div id="ball-container">
       
         <div class="ball">
             <div class="ball-number">?</div>
-        </div>
-       
-        <div class="ball">
-            <div class="ball-number">?</div>
-        </div>
-        <div class="ball">
-            <div class="ball-number">?</div>
-        </div>
-        <div class="ball">
-            <div class="ball-number">?</div>        
         </div>
         <div class="ball" id="powerball">
             <div class="ball-number">?</div>          
@@ -90,7 +81,7 @@
     </div>
   
     <div class="result"></div>
-
+<!-- 
     <script>
          
         let data = []; 
@@ -209,7 +200,7 @@
 
                     if (frequencyRow) {
                       
-                        document.querySelector('.result').textContent = `Ball ${dropdown.value} was drawn: ${frequencyRow[1]} times, it is ranked #${selectedRank} in frequency.`;
+                        document.querySelector('.result').textContent = `Ball ${dropdown.value} was drawn: ${frequencyRow[1]} times. <br> It is ranked #${selectedRank} in frequency.`;
 
                     } else {
                         document.querySelector('.result').textContent = 'Frequency: N/A';
@@ -296,13 +287,16 @@
                     const frequencyPct = frequencyRow ? ((parseInt(frequencyRow[1]) / 1245) * 100).toFixed(2) : 'N/A';
 
                     if (frequencyRow) {
-                    document.querySelector('.result').textContent = `Powerball ${dropdown.value} was drawn: ${frequencyRow[1]} times, it is ranked #${selectedRank} in frequency.`;
+                    document.querySelector('.result').textContent = `Powerball ${dropdown.value} was drawn: ${frequencyRow[1]} times. It is ranked #${selectedRank} in frequency.`;
                     } else {
                     document.querySelector('.result').textContent = 'Frequency: N/A';
                     }
                 });
                 }
             });
+
+
+
 
             document.querySelectorAll('.ball').forEach(ball => {
                 ball.addEventListener('mouseover', function () {
@@ -326,7 +320,7 @@
                         const selectedRank = rankedData.find(row => row.number == ballNumber)?.rank;
 
                         if (frequencyRow) {
-                            document.querySelector('.result').textContent = `Ball no. ${ballNumber} was drawn ${frequencyRow[1]} times; it is ranked no. ${selectedRank} in frequency.`;
+                            document.querySelector('.result').textContent = `Ball no. ${ballNumber} was drawn ${frequencyRow[1]} times. It is ranked no. ${selectedRank} in frequency.`;
                         } else {
                             document.querySelector('.result').textContent = 'Frequency: N/A';
                         }
@@ -372,6 +366,161 @@
             });
             
         });
+    </script> -->
+
+    <script>
+     let data = []; 
+let powerBallData = [];
+
+// Fetch regular ball data
+fetch('Powerball data - number-frequencies.csv')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(csvData => {
+        const rows = csvData.split('\n').slice(1); 
+        data = rows.map(row => row.split(','));
+        console.log('Regular Ball Data:', data); 
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
+// Fetch powerball data
+fetch('Powerball data - powerball-frequencies.csv')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(csvData => {
+        const rows = csvData.split('\n').slice(1); 
+        powerBallData = rows.map(row => row.split(','));
+        console.log('Power Ball Data:', powerBallData); 
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+
+// Helper function to get frequency info
+function getFrequencyInfo(selectedNumber, dataSource, ballType = 'Ball') {
+    const frequencyRow = dataSource.find(row => row[0] == selectedNumber);
+    
+    if (!frequencyRow) {
+        return { text: 'Frequency: N/A', found: false };
+    }
+    
+    const rankedData = dataSource
+        .map(row => ({
+            number: row[0],
+            frequency: parseInt(row[1]),
+            rank: 0
+        }))
+        .sort((a, b) => b.frequency - a.frequency);
+    
+    rankedData.forEach((row, index) => {
+        row.rank = index + 1;
+    });
+    
+    const selectedRank = rankedData.find(row => row.number == selectedNumber)?.rank;
+    
+    return {
+        text: `${ballType} ${selectedNumber} was drawn ${frequencyRow[1]} times. It is ranked #${selectedRank} in frequency.`,
+        found: true
+    };
+}
+
+// Single event listener for all balls
+document.querySelectorAll('.ball').forEach(ball => {
+    const isPowerball = ball.id === 'powerball';
+    const maxNumber = isPowerball ? 26 : 69;
+    const ballType = isPowerball ? 'Powerball' : 'Ball';
+    
+    // Click event for dropdown
+    ball.addEventListener('click', function () {
+        const ballNumber = this.querySelector('.ball-number');
+        
+        // Check if dropdown already exists
+        if (!this.querySelector('select')) {
+            const dropdown = document.createElement('select');
+            const options = Array.from({ length: maxNumber }, (_, i) => i + 1);
+            
+            // Get current ball number to set as selected
+            const currentNumber = ballNumber.textContent;
+            
+            options.forEach(optionText => {
+                const option = document.createElement('option');
+                option.value = optionText;
+                option.textContent = optionText;
+                
+                // Set the current ball number as selected
+                if (optionText.toString() === currentNumber) {
+                    option.selected = true;
+                }
+                
+                dropdown.appendChild(option);
+            });
+            
+            // Hide the ball number text and replace with dropdown
+            ballNumber.style.display = 'none';
+            
+            // Single change event listener
+            dropdown.addEventListener('change', function () {
+                const selectedNumber = this.value;
+                ballNumber.textContent = selectedNumber;
+                
+                // Get current data when event fires
+                const currentData = isPowerball ? powerBallData : data;
+                
+                // Update result using helper function
+                const frequencyInfo = getFrequencyInfo(selectedNumber, currentData, ballType);
+                document.querySelector('.result').textContent = frequencyInfo.text;
+            });
+            
+            // Add blur event to hide dropdown and show number again
+            dropdown.addEventListener('blur', function () {
+                ballNumber.style.display = 'flex';
+                this.remove();
+            });
+            
+            // Position the dropdown where the ball number was
+            dropdown.style.position = 'absolute';
+            dropdown.style.top = '50%';
+            dropdown.style.left = '50%';
+            dropdown.style.transform = 'translate(-50%, -50%)';
+            dropdown.style.background = 'transparent';
+            dropdown.style.border = 'none';
+            dropdown.style.fontSize = 'inherit';
+            dropdown.style.textAlign = 'center';
+            
+            ballNumber.parentNode.appendChild(dropdown);
+            
+            // Focus the dropdown to open it
+            dropdown.focus();
+        }
+    });
+    
+    // Mouseover event
+    ball.addEventListener('mouseover', function () {
+        const ballNumber = this.querySelector('.ball-number').textContent;
+        
+        if (ballNumber !== '?') {
+            // Get current data when event fires
+            const currentData = isPowerball ? powerBallData : data;
+            const frequencyInfo = getFrequencyInfo(ballNumber, currentData, ballType);
+            document.querySelector('.result').textContent = frequencyInfo.text;
+        }
+    });
+    
+    // Mouseout event
+    ball.addEventListener('mouseout', function () {
+        document.querySelector('.result').textContent = '';
+    });
+});
     </script>
 </body>
 </html>
