@@ -43,26 +43,30 @@
         }
 
         .result {
-            /* margin-top: 100px; */
             display: flex;
             justify-content: center;
-            font-size: 16px;
-            /* background-color: aliceblue; */
-            padding: 5px;
-            width: 300px;
+            font-size: 1.125rem;
+            height: 30px;
             align-items: center;
             margin: 0 auto;
-            
+        }
 
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            height: 100%; /* Ensure the container has height */
+            
         }
 
         #ball-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-            gap: 30px;
-            
+            flex-direction: column;
+            justify-content: center; /* Center items vertically */
+            align-items: center; /* Center items horizontally */
+            width: 120px;
         }
         #ball-container #powerball {
             border: 3px solid #333;
@@ -75,9 +79,35 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            /* margin-bottom: 30px;
-            gap: 10px; */
+            /* gap: 10px; */
             font-size: 24px;
+        }
+        .ball-text {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 100%;
+            color: #333;
+        }
+        .powerball-text {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 100%;
+            color: white; 
+        }
+
+        
+        #ball-container .ball:hover {
+            
+            transform: scale(1.1);
+            transition: all 0.3s ease;
         }
 
         @media (max-width: 768px) {
@@ -91,21 +121,8 @@
                 margin: 5px;
             }
 
-            .ball-number {
-                font-size: 18px;
-            }
-
-            #ball-container {
-                gap: 15px;
-            }
-
-            #frequency-container {
-                font-size: 18px;
-            }
-
-            .result {
-                font-size: 14px;
-                width: 300px;
+            .container {    
+                gap: 30px;
             }
 
             .footnote {
@@ -120,221 +137,106 @@
 
     <h2>Most common winning numbers</h2>
     <div id="frequency-container">
-        <div class="ball">61</div>
-        <div class="ball">21</div>
-        <div class="ball">23</div>
-        <div class="ball">33</div>
-        <!-- <div class="ball">69</div> -->
-        <!-- <div class="ball">27</div> -->
+        <div class="ball">
+            <div class="ball-text" id="main1"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main2"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main3"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main4"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main5"></div>
+        </div>
     </div>
     <div id="frequency-container">
-        <div class="ball" id="powerball">4</div>
-        <div class="ball" id="powerball">21</div>
-        <div class="ball" id="powerball">24</div>
-        <div class="ball" id="powerball">18</div>
-        <!-- <div class="ball" id="powerball">25</div> -->
-        <!-- <div class="ball" id="powerball">14</div> -->
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball1"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball2"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball3"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball4"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball5"></div>
+        </div>
     </div>
 
     <br><br>
     <h2>Least common winning numbers</h2>
     <div id="frequency-container">
-        <div class="ball">13</div>
-        <div class="ball">49</div>
-        <div class="ball">26</div>
-        <div class="ball">46</div>
-        <!-- <div class="ball">65</div> -->
-        <!-- <div class="ball">51</div> -->
+        <div class="ball">
+            <div class="ball-text" id="main65">
+            </div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main66"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main67"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main68"></div>
+        </div>
+        <div class="ball">
+            <div class="ball-text" id="main69"></div>
+        </div>
     </div>
     <div id="frequency-container">
-        <div class="ball" id="powerball">16</div>
-        <div class="ball" id="powerball">15</div>
-        <div class="ball" id="powerball">12</div>
-        <div class="ball" id="powerball">17</div>
-        <!-- <div class="ball" id="powerball">23</div> -->
-        <!-- <div class="ball" id="powerball">7</div> -->
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball22"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball23"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball24"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball25"></div>
+        </div>
+        <div class="ball" id="powerball">
+            <div class="powerball-text" id="powerball26"></div>
+        </div>
     </div>
 
     <br><br><br><br>
 
     <h2>Check how often your Powerball numbers win</h2>
     <p>Pick your main ball and powerball numbers, then hover over each ball to discover how many times it has been drawn over the past ten years.</p>
-    <div id="ball-container"> 
-        <div class="ball">
-            <div class="ball-number">?</div>
-            <!-- <div class="result"></div>    -->
-        </div>
-        <div class="ball" id="powerball">
-            <div class="ball-number">?</div>
-            <!-- <div class="result"></div>            -->
+    
+    <div class="container">
+        <div id="ball-container"> 
+            <div class="ball">
+                <div class="ball-number">?</div>
+            </div>
+            <div class="result" id="result-main"></div>  
+        </div> 
+        <div id="ball-container">
+            <div class="ball" id="powerball">
+                <div class="ball-number">?</div>
+            </div>
+            <div class="result" id="result-powerball"></div>             
         </div>
     </div>
-    <div class="result"></div>
+  
 
     
     <div class="footnote" style="text-align:left; margin-top:20px; font-size:0.9rem; color:#414141; line-height: 1rem;">
         <p>Interactive: Katrina Ventura/Hearst TV • Source: <a href="https://www.powerball.net/statistics" target="_blank">Powerball Statistics</a><br><i>Data as of September 4, 2025.</i></p>
     </div>
 
-<!-- <script>
-let data = []; 
-let powerBallData = [];
-
-// Fetch regular ball data
-fetch('Powerball data - number-frequencies.csv')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.text();
-    })
-    .then(csvData => {
-        const rows = csvData.split('\n').slice(1); 
-        data = rows.map(row => row.split(','));
-        console.log('Regular Ball Data:', data); 
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-
-// Fetch powerball data
-fetch('Powerball data - powerball-frequencies.csv')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.text();
-    })
-    .then(csvData => {
-        const rows = csvData.split('\n').slice(1); 
-        powerBallData = rows.map(row => row.split(','));
-        console.log('Power Ball Data:', powerBallData); 
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
-
-// Helper function to get frequency info
-function getFrequencyInfo(selectedNumber, dataSource, ballType = 'Ball') {
-    const frequencyRow = dataSource.find(row => row[0] == selectedNumber);
-    
-    if (!frequencyRow) {
-        return { text: 'Frequency: N/A', found: false };
-    }
-    
-    const rankedData = dataSource
-        .map(row => ({
-            number: row[0],
-            frequency: parseInt(row[1]),
-            rank: 0
-        }))
-        .sort((a, b) => b.frequency - a.frequency);
-    
-    rankedData.forEach((row, index) => {
-        row.rank = index + 1;
-    });
-    
-    const selectedRank = rankedData.find(row => row.number == selectedNumber)?.rank;
-    
-    // return {
-    //     text: `${ballType} ${selectedNumber} was drawn<br>${frequencyRow[1]} out of 1,245 times.`,
-    //     found: true
-    // };
-
-    return {
-        text: `No. ${selectedNumber} was drawn<br>${frequencyRow[1]} out of 1,245 times.`,
-        found: true
-    };
-}
-
-// Single event listener for all balls
-document.querySelectorAll('.ball').forEach(ball => {
-    const isPowerball = ball.id === 'powerball';
-    const maxNumber = isPowerball ? 26 : 69;
-    const ballType = isPowerball ? 'Powerball' : 'Ball';
-    
-    // Click event for dropdown
-    ball.addEventListener('click', function () {
-        const ballNumber = this.querySelector('.ball-number');
-        
-        // Check if dropdown already exists
-        if (!this.querySelector('select')) {
-            const dropdown = document.createElement('select');
-            const options = Array.from({ length: maxNumber }, (_, i) => i + 1);
-            
-            // Get current ball number to set as selected
-            const currentNumber = ballNumber.textContent;
-            
-            options.forEach(optionText => {
-                const option = document.createElement('option');
-                option.value = optionText;
-                option.textContent = optionText;
-                
-                // Set the current ball number as selected
-                if (optionText.toString() === currentNumber) {
-                    option.selected = true;
-                }
-                
-                dropdown.appendChild(option);
-            });
-            
-            // Hide the ball number text and replace with dropdown
-            ballNumber.style.display = 'none';
-            
-            // Single change event listener
-            dropdown.addEventListener('change', function () {
-                const selectedNumber = this.value;
-                ballNumber.textContent = selectedNumber;
-                
-                // Get current data when event fires
-                const currentData = isPowerball ? powerBallData : data;
-                
-                // Update result using helper function
-                const frequencyInfo = getFrequencyInfo(selectedNumber, currentData, ballType);
-                
-                // Get existing results and update appropriately
-                const resultDiv = document.querySelector('.result');
-                const currentResults = resultDiv.innerHTML;
-                
-                if (isPowerball) {
-                    // For powerball, replace any existing powerball info or add to end
-                    const mainBallResults = currentResults.split('<hr>')[0] || currentResults.split('Powerball')[0] || currentResults;
-                    resultDiv.innerHTML = mainBallResults + (mainBallResults ? '<hr>' : '') + frequencyInfo.text;
-                } else {
-                    // For main balls, replace main ball info but keep powerball info if it exists
-                    const powerballMatch = currentResults.match(/(Powerball.*)/);
-                    const powerballResults = powerballMatch ? '<hr>' + powerballMatch[1] : '';
-                    resultDiv.innerHTML = frequencyInfo.text + powerballResults;
-                }
-            });
-            
-            // Add blur event to hide dropdown and show number again
-            dropdown.addEventListener('blur', function () {
-                ballNumber.style.display = 'flex';
-                this.remove();
-            });
-            
-            // Position the dropdown where the ball number was
-            dropdown.style.position = 'absolute';
-            dropdown.style.top = '50%';
-            dropdown.style.left = '50%';
-            dropdown.style.transform = 'translate(-50%, -50%)';
-            dropdown.style.background = 'transparent';
-            dropdown.style.border = 'none';
-            // dropdown.style.fontSize = 'inherit';
-            dropdown.style.textAlign = 'center';
-            
-            ballNumber.parentNode.appendChild(dropdown);
-            
-            // Focus the dropdown to open it
-            dropdown.focus();
-        }
-    });
-
-});
-</script> -->
-
 <script src = 'calculator.js'></script>
+
 </body>
 </html>
 
